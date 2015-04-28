@@ -6,7 +6,7 @@ Work in progress!
 
 ### Quick example
 
-```
+```javascript
 var Trakt = require('trakt-api');
 var trakt = Trakt(API_KEY[, OPTIONS]);
 
@@ -26,7 +26,7 @@ trakt.show({ id : 'manhattan' }, { extended : 'full' }, function(err, show) {
 
 ### Constructor
 
-```
+```javascript
 var trakt = Trakt(API_KEY : String [, OPTIONS : Object]);
 ```
 
@@ -51,7 +51,7 @@ If successful, the response will be an object holding the raw (but parsed) Trakt
 
 ##### Methods currently implemented:
 
-```
+```javascript
 trakt.show({"id":"REQUIRED"}[, OPTIONS])
 
 trakt.showAliases({"id":"REQUIRED"}[, OPTIONS])
