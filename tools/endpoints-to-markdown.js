@@ -9,5 +9,5 @@ endpoints.forEach(function(endpoint) {
                       endpoint.params[param].optional ? 'OPTIONAL' : '...';
     }
   }
-  console.log('trakt.%s(%j)\n', endpoint.name, params);
+  console.log('trakt.%s(%j[, OPTIONS])\n', endpoint.name, params);
 });

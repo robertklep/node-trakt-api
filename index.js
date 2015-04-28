@@ -6,8 +6,9 @@ var Promise = require('bluebird').Promise;
 var logger  = require('winston');
 
 var DEFAULTS = {
-  apiUrl   : 'https://api-v2launch.trakt.tv',
-  logLevel : 'info',
+  apiUrl        : 'https://api-v2launch.trakt.tv',
+  extendedLevel : 'min',
+  logLevel      : 'info',
 };
 
 var Trakt = module.exports = function Trakt(apiKey, opts) {
@@ -42,12 +43,11 @@ Trakt.prototype.request = function(method, endpoint, endpointParams, _opts, call
 
   // Additional request parameters
   var opts     = lodash.isPlainObject(_opts) ? _opts : {};
-  var params   = {};
-  if (opts.extended) params = extended(params, opts.extended);
-  if (opts.paginate) params = paginate(params, opts.paginate);
+  var params   = this.extended(params, opts.extended);
+  if (opts.paginate) params = this.paginate(params, opts.paginate);
 
   // Perform API request.
-  var url = this.opts.apiUrl + expand(endpoint, endpointParams);
+  var url = this.opts.apiUrl + this.expand(endpoint, endpointParams);
   var req = this.req.bind(this.req);
   return new Promise(function(resolve, reject) {
     logger.debug('making API request', { url : url, method : method, qs : JSON.stringify(params) });
@@ -89,11 +89,14 @@ Trakt.prototype.endpoint = function(endpoint, params, opts, callback) {
   }
   return new Promise(function(resolve, reject) {
     // Check parameters
+    var rejected = false;
     lodash.each(endpoint.params, function(flags, param) {
-      if (flags.required && params[param] === undefined) {
+      if (! rejected && flags.required && params[param] === undefined) {
+        rejected = true;
         return reject(new Error('missing required parameter "' + param + '"'));
       }
     });
+    if (rejected) return;
     // Make the call.
     return resolve(this.request(endpoint.method, endpoint.endpoint, params, opts, callback));
   }.bind(this));
@@ -108,14 +111,13 @@ require('./endpoints.json').forEach(function(endpoint) {
   };
 });
 
-// Helper functions
-var expand = function(template, params) {
+Trakt.prototype.expand = function(template, params) {
   return template.replace(/{(.*?)}/g, function(m, b) {
     return params[b] || '';
   });
 };
 
-var paginate = function(params, opts) {
+Trakt.prototype.paginate = function(params, opts) {
   params       = params || {};
   opts         = opts   || {};
   params.page  = opts.page  === undefined ?  1 : opts.page;
@@ -123,8 +125,8 @@ var paginate = function(params, opts) {
   return params;
 };
 
-var extended = function(params, level) {
+Trakt.prototype.extended = function(params, level) {
   params          = params || {};
-  params.extended = level === undefined ? 'min' : level;
+  params.extended = level === undefined ? this.opts.extendedLevel : level;
   return params;
 };
