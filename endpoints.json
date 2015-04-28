@@ -1,0 +1,1155 @@
+[
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/oauth/authorize{?response_type,client_id,redirect_uri,state}",
+    "params": {
+      "response_type": {
+        "required": true,
+        "optional": false
+      },
+      "client_id": {
+        "required": true,
+        "optional": false
+      },
+      "redirect_uri": {
+        "required": true,
+        "optional": false
+      },
+      "state": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/oauth/token",
+    "params": {
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 200": {
+        "required": false,
+        "optional": false
+      },
+      "Response 401": {
+        "required": false,
+        "optional": false
+      },
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/calendars/my/shows/new/{start_date}/{days}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/calendars/my/shows/premieres/{start_date}/{days}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/calendars/my/movies/{start_date}/{days}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/calendars/all/shows/{start_date}/{days}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/calendars/all/shows/new/{start_date}/{days}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/calendars/all/shows/premieres/{start_date}/{days}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/calendars/all/movies/{start_date}/{days}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      },
+      "days": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/checkin",
+    "params": {
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 201": {
+        "required": false,
+        "optional": false
+      },
+      "Response 409": {
+        "required": false,
+        "optional": false
+      },
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/comments/{id}/replies",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/comments/{id}/like",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 204": {
+        "required": false,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/popular",
+    "params": {}
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/trending",
+    "params": {}
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/updates/{start_date}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/aliases",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/releases/{country}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "country": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/translations/{language}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "language": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/comments",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/people",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/ratings",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/related",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/stats",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/movies/{id}/watching",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/people/{id}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/people/{id}/movies",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/people/{id}/shows",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/recommendations/movies",
+    "params": {}
+  },
+  {
+    "name": "",
+    "method": "DELETE",
+    "endpoint": "/recommendations/movies/{id}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "Request": {
+        "required": false,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "DELETE",
+    "endpoint": "/recommendations/shows/{id}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 201": {
+        "required": false,
+        "optional": false
+      },
+      "query": {
+        "required": true,
+        "optional": false
+      },
+      "type": {
+        "required": false,
+        "optional": true
+      },
+      "year": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/search{?id_type,id}",
+    "params": {
+      "id_type": {
+        "required": true,
+        "optional": false
+      },
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/shows/popular",
+    "params": {}
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/shows/trending",
+    "params": {}
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/shows/updates/{start_date}",
+    "params": {
+      "start_date": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "show",
+    "method": "GET",
+    "endpoint": "/shows/{id}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showAliases",
+    "method": "GET",
+    "endpoint": "/shows/{id}/aliases",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showTranslations",
+    "method": "GET",
+    "endpoint": "/shows/{id}/translations/{language}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "language": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "showComments",
+    "method": "GET",
+    "endpoint": "/shows/{id}/comments",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showProgressCollection",
+    "method": "GET",
+    "endpoint": "/shows/{id}/progress/collection",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showProgressWatched",
+    "method": "GET",
+    "endpoint": "/shows/{id}/progress/watched",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showPeople",
+    "method": "GET",
+    "endpoint": "/shows/{id}/people",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showRatings",
+    "method": "GET",
+    "endpoint": "/shows/{id}/ratings",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showRelated",
+    "method": "GET",
+    "endpoint": "/shows/{id}/related",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showStats",
+    "method": "GET",
+    "endpoint": "/shows/{id}/stats",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showWatching",
+    "method": "GET",
+    "endpoint": "/shows/{id}/watching",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "showSeasons",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "season",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "seasonComments",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/comments",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "seasonRatings",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/ratings",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "seasonStats",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/stats",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "seasonWatching",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/watching",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "episode",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/episodes/{episode}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      },
+      "episode": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "episodeComments",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/episodes/{episode}/comments",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      },
+      "episode": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "episodeRatings",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/episodes/{episode}/ratings",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      },
+      "episode": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "episodeStats",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/episodes/{episode}/stats",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      },
+      "episode": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "episodeWatching",
+    "method": "GET",
+    "endpoint": "/shows/{id}/seasons/{season}/episodes/{episode}/watching",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "season": {
+        "required": true,
+        "optional": false
+      },
+      "episode": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/sync/last_activities",
+    "params": {}
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/sync/playback/{type}",
+    "params": {
+      "type": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/sync/collection/{type}",
+    "params": {
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/sync/collection",
+    "params": {
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 201": {
+        "required": false,
+        "optional": false
+      },
+      "Response 200": {
+        "required": false,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/sync/history",
+    "params": {
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 201": {
+        "required": false,
+        "optional": false
+      },
+      "Response 200": {
+        "required": false,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      },
+      "rating": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/sync/ratings",
+    "params": {
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 201": {
+        "required": false,
+        "optional": false
+      },
+      "Response 200": {
+        "required": false,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/sync/watchlist",
+    "params": {
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 201": {
+        "required": false,
+        "optional": false
+      },
+      "Response 200": {
+        "required": false,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/requests",
+    "params": {}
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/users/requests/{id}",
+    "params": {
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 200": {
+        "required": false,
+        "optional": false
+      },
+      "Response 204": {
+        "required": false,
+        "optional": false
+      },
+      "section": {
+        "required": true,
+        "optional": false
+      },
+      "type": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/collection/{type}",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/lists",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/lists/{id}",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "id": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/users/{username}/lists/{id}/like",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 204": {
+        "required": false,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "POST",
+    "endpoint": "/users/{username}/lists/{id}/items/remove",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "id": {
+        "required": true,
+        "optional": false
+      },
+      "Request": {
+        "required": false,
+        "optional": false
+      },
+      "Response 200": {
+        "required": false,
+        "optional": false
+      },
+      "Response 201": {
+        "required": false,
+        "optional": false
+      },
+      "Response 204": {
+        "required": false,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/following",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/friends",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/history/{type}",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/ratings/{type}/{rating}",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      },
+      "rating": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/watchlist/{type}",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/watching",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/watched/{type}",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      },
+      "type": {
+        "required": true,
+        "optional": false
+      }
+    }
+  },
+  {
+    "name": "",
+    "method": "GET",
+    "endpoint": "/users/{username}/stats",
+    "params": {
+      "username": {
+        "required": true,
+        "optional": false
+      }
+    }
+  }
+]

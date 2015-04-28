@@ -1,0 +1,15 @@
+{
+  "name": "trakt-api",
+  "version": "0.0.1",
+  "description": "Trakt API v2 client",
+  "main": "index.js",
+  "author": "Robert Klep <robert@klep.name>",
+  "license": "MIT",
+  "repository" : "robertklep/node-trakt-api",
+  "dependencies": {
+    "bluebird": "^2.9.25",
+    "lodash": "^3.7.0",
+    "request": "^2.55.0",
+    "winston": "^1.0.0"
+  }
+}
