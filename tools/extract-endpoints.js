@@ -13,7 +13,7 @@ console.log('%j', endpoints.map(function(ep) {
     var name = matches[1];
     params[name] = {
       required : matches[2].indexOf('required') !== -1,
-      optional : matches[2].indexOf('optiona') !== -1,
+      optional : matches[2].indexOf('optional') !== -1,
     };
   }
   return {
