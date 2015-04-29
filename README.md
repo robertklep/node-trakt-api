@@ -40,7 +40,7 @@ extendedLevel : String   // default "extended level" (default: 'min')
 
 ### API methods
 
-All API methods are generated from `endpoint.json`. The endpoints that have a `name` property are the ones that are implemented. An API method may be passed parameters, some required, some optional. Required parameters are enforced and will cause an error to be returned if not defined.
+All API methods are generated from `endpoints.json`. The endpoints that have a `name` property are the ones that are implemented. An API method may be passed parameters, some required, some optional. Required parameters are enforced and will cause an error to be returned if not defined.
 
 An API method may be passed an optional `OPTIONS` object, which only makes sense for some endpoints. Valid options:
 
