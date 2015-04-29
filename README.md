@@ -52,6 +52,18 @@ If successful, the response will be an object holding the raw (but parsed) Trakt
 ##### Methods currently implemented:
 
 ```javascript
+trakt.search(QUERY[, TYPE])
+
+trakt.searchAll(QUERY)
+
+trakt.searchShow(QUERY)
+
+trakt.searchMovie(QUERY)
+
+trakt.searchEpisode(QUERY)
+
+trakt.searchPerson(QUERY)
+
 trakt.show({"id":"REQUIRED"}[, OPTIONS])
 
 trakt.showAliases({"id":"REQUIRED"}[, OPTIONS])

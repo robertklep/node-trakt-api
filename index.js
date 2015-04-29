@@ -34,17 +34,18 @@ var Trakt = module.exports = function Trakt(apiKey, opts) {
   logger.debug('initialized');
 };
 
-Trakt.prototype.request = function(method, endpoint, endpointParams, _opts, callback) {
+Trakt.prototype.request = function(method, endpoint, endpointParams, qsparams, callback) {
   // Argument handling.
-  if (lodash.isFunction(_opts)) {
-    callback = _opts;
-    _opts    = {};
+  if (lodash.isFunction(qsparams)) {
+    callback = qsparams;
+    qsparams = {};
   }
 
   // Additional request parameters
-  var opts     = lodash.isPlainObject(_opts) ? _opts : {};
-  var params   = this.extended(params, opts.extended);
-  if (opts.paginate) params = this.paginate(params, opts.paginate);
+  var params = lodash.isPlainObject(qsparams) ? qsparams : {};
+  if (! params.extended && this.opts.extendedLevel) {
+    params.extended = this.opts.extendedLevel;
+  }
 
   // Perform API request.
   var url = this.opts.apiUrl + this.expand(endpoint, endpointParams);
@@ -79,7 +80,7 @@ Trakt.prototype.request = function(method, endpoint, endpointParams, _opts, call
   }).nodeify(callback);
 };
 
-// Create endpoint methods.
+// API method wrapper.
 Trakt.prototype.endpoint = function(endpoint, params, opts, callback) {
   params = params || {};
   // Argument handling.
@@ -102,6 +103,7 @@ Trakt.prototype.endpoint = function(endpoint, params, opts, callback) {
   }.bind(this));
 };
 
+// Dynamically generate API methods.
 require('./endpoints.json').forEach(function(endpoint) {
   if (! endpoint.name) return;
   Trakt.prototype[endpoint.name] = function() {
@@ -111,10 +113,28 @@ require('./endpoints.json').forEach(function(endpoint) {
   };
 });
 
+// Search methods.
+Trakt.prototype.search = Trakt.prototype.searchAll = function(query, type, callback) {
+  if (lodash.isFunction(type)) {
+    callback = type;
+    type     = null;
+  }
+  var params = { query : query };
+  if (type) params.type = type;
+  return this.request('GET', '/search', {}, params, callback);
+};
+
+[ 'Show', 'Movie', 'Episode', 'Person' ].forEach(function(type) {
+  Trakt.prototype['search' + type] = function() {
+    var args = [].slice.call(arguments);
+    args.splice(1, 0, type.toLowerCase());
+    return this.search.apply(this, args);
+  };
+});
+
+// Helper methods.
 Trakt.prototype.expand = function(template, params) {
-  return template.replace(/{(.*?)}/g, function(m, b) {
-    return params[b] || '';
-  });
+  return template.replace(/{(.*?)}/g, function(m, b) { return params[b] || ''; });
 };
 
 Trakt.prototype.paginate = function(params, opts) {
