@@ -4,6 +4,12 @@ Node.js client for the [Trakt.tv API](http://docs.trakt.apiary.io/#).
 
 Work in progress!
 
+### Installation
+
+```
+$ npm i trakt-api
+```
+
 ### Quick example
 
 ```javascript
