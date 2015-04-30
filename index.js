@@ -1,4 +1,5 @@
 var assert  = require('assert');
+var norma   = require('norma');
 var lodash  = require('lodash');
 var request = require('request');
 var nodeify = require('bluebird').nodeify;
@@ -6,9 +7,9 @@ var Promise = require('bluebird').Promise;
 var logger  = require('winston');
 
 var DEFAULTS = {
-  apiUrl        : 'https://api-v2launch.trakt.tv',
-  extendedLevel : 'min',
-  logLevel      : 'info',
+  apiUrl   : 'https://api-v2launch.trakt.tv',
+  extended : 'min',
+  logLevel : 'info',
 };
 
 var Trakt = module.exports = function Trakt(apiKey, opts) {
@@ -35,26 +36,22 @@ var Trakt = module.exports = function Trakt(apiKey, opts) {
 };
 
 Trakt.prototype.request = function(method, endpoint, endpointParams, qsparams, callback) {
-  // Argument handling.
-  if (lodash.isFunction(qsparams)) {
-    callback = qsparams;
-    qsparams = {};
-  }
+  var args = norma('method:s endpoint:s endpointParams:o? qsParams:o? callback:f?', arguments);
 
   // Additional request parameters
-  var params = lodash.isPlainObject(qsparams) ? qsparams : {};
-  if (! params.extended && this.opts.extendedLevel) {
-    params.extended = this.opts.extendedLevel;
+  var params = args.qsParams || {};
+  if (! params.extended && this.opts.extended) {
+    params.extended = this.opts.extended;
   }
 
   // Perform API request.
-  var url = this.opts.apiUrl + this.expand(endpoint, endpointParams);
+  var url = this.opts.apiUrl + this.expand(args.endpoint, args.endpointParams || {});
   var req = this.req.bind(this.req);
   return new Promise(function(resolve, reject) {
-    logger.debug('making API request', { url : url, method : method, qs : JSON.stringify(params) });
+    logger.debug('making API request', { url : url, method : args.method, qs : JSON.stringify(params) });
 
     req({
-      method : method,
+      method : args.method,
       url    : url,
       qs     : params,
     }, function(err, message, body) {
@@ -77,51 +74,38 @@ Trakt.prototype.request = function(method, endpoint, endpointParams, qsparams, c
       }
 
     });
-  }).nodeify(callback);
-};
-
-// API method wrapper.
-Trakt.prototype.endpoint = function(endpoint, params, opts, callback) {
-  params = params || {};
-  // Argument handling.
-  if (lodash.isFunction(params)) {
-    callback = params;
-    params   = {};
-  }
-  return new Promise(function(resolve, reject) {
-    // Check parameters
-    var rejected = false;
-    lodash.each(endpoint.params, function(flags, param) {
-      if (! rejected && flags.required && params[param] === undefined) {
-        rejected = true;
-        return reject(new Error('missing required parameter "' + param + '"'));
-      }
-    });
-    if (rejected) return;
-    // Make the call.
-    return resolve(this.request(endpoint.method, endpoint.endpoint, params, opts, callback));
-  }.bind(this));
+  }).nodeify(args.callback);
 };
 
 // Dynamically generate API methods.
 require('./endpoints.json').forEach(function(endpoint) {
   if (! endpoint.name) return;
+
+  // Compile arguments handler.
+  var argspec = norma.compile(lodash.map(endpoint.params, function(flags, param) {
+    return param + ':.' + (flags.optional ? '?' : '');
+  }).concat('opts:o?', 'callback:f?').join(' '));
+
+  // Create the API method.
   Trakt.prototype[endpoint.name] = function() {
-    var args = [].slice.call(arguments);
-    args.unshift(endpoint);
-    return Trakt.prototype.endpoint.apply(this, args);
+    // Parse arguments (XXX: handle errors).
+    var args = argspec(arguments);
+
+    // Collect parameters.
+    var params = lodash(endpoint.params).map(function(flags, param) {
+      return [ param, args[param] ];
+    }).zipObject().value();
+
+    // Perform the request.
+    return this.request(endpoint.method, endpoint.endpoint, params, args.opts, args.callback);
   };
 });
 
 // Search methods.
-Trakt.prototype.search = Trakt.prototype.searchAll = function(query, type, callback) {
-  if (lodash.isFunction(type)) {
-    callback = type;
-    type     = null;
-  }
-  var params = { query : query };
-  if (type) params.type = type;
-  return this.request('GET', '/search', {}, params, callback);
+Trakt.prototype.search = Trakt.prototype.searchAll = function() {
+  var args   = norma('query:s type:s? callback:f?', arguments);
+  var params = { query : args.query, type : args.type };
+  return this.request('GET', '/search', {}, params, args.callback);
 };
 
 [ 'Show', 'Movie', 'Episode', 'Person' ].forEach(function(type) {
@@ -135,18 +119,4 @@ Trakt.prototype.search = Trakt.prototype.searchAll = function(query, type, callb
 // Helper methods.
 Trakt.prototype.expand = function(template, params) {
   return template.replace(/{(.*?)}/g, function(m, b) { return params[b] || ''; });
-};
-
-Trakt.prototype.paginate = function(params, opts) {
-  params       = params || {};
-  opts         = opts   || {};
-  params.page  = opts.page  === undefined ?  1 : opts.page;
-  params.limit = opts.limit === undefined ? 10 : opts.limit;
-  return params;
-};
-
-Trakt.prototype.extended = function(params, level) {
-  params          = params || {};
-  params.extended = level === undefined ? this.opts.extendedLevel : level;
-  return params;
 };

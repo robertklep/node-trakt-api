@@ -2,12 +2,12 @@ var endpoints = require('../endpoints.json');
 
 endpoints.forEach(function(endpoint) {
   if (! endpoint.name) return;
-  var params = {};
-  if (Object.keys(endpoint.params).length) {
-    for (var param in endpoint.params) {
-      params[param] = endpoint.params[param].required ? 'REQUIRED' :
-                      endpoint.params[param].optional ? 'OPTIONAL' : '...';
+  var params = Object.keys(endpoint.params || {}).map(function(param, i) {
+    var arg = (i !== 0 ? ', ' : '') + param.toUpperCase();
+    if (endpoint.params[param].optional) {
+      arg = '[' + arg + ']';
     }
-  }
-  console.log('trakt.%s(%j[, OPTIONS])\n', endpoint.name, params);
+    return arg;
+  }).join('');
+  console.log('trakt.%s(%s[, OPTIONS])\n', endpoint.name, params);
 });
