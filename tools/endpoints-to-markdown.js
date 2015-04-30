@@ -9,5 +9,5 @@ endpoints.forEach(function(endpoint) {
     }
     return arg;
   }).join('');
-  console.log('trakt.%s(%s[, OPTIONS])\n', endpoint.name, params);
+  console.log('trakt.%s(%s[, OPTIONS][, CALLBACK])\n', endpoint.name, params);
 });

@@ -46,64 +46,64 @@ An API method may be passed an optional `OPTIONS` object, which only makes sense
 
 * `extended`: use an [extended information level](http://docs.trakt.apiary.io/#introduction/extended-info)
 
-If successful, the response will be an object holding the raw (but parsed) Trakt API response.
+If you don't like promises, or just prefer old school callbacks, pass a function as last argument. Otherwise, all methods return a promise. See the example above.
 
 ##### Methods currently implemented:
 
 ```javascript
-trakt.search(QUERY[, TYPE])
+trakt.search(QUERY[, TYPE][, CALLBACK])
 
-trakt.searchAll(QUERY)
+trakt.searchAll(QUERY[, CALLBACK])
 
-trakt.searchShow(QUERY)
+trakt.searchShow(QUERY[, CALLBACK])
 
-trakt.searchMovie(QUERY)
+trakt.searchMovie(QUERY[, CALLBACK])
 
-trakt.searchEpisode(QUERY)
+trakt.searchEpisode(QUERY[, CALLBACK])
 
-trakt.searchPerson(QUERY)
+trakt.searchPerson(QUERY[, CALLBACK])
 
-trakt.show(ID[, OPTIONS])
+trakt.show(ID[, OPTIONS][, CALLBACK])
 
-trakt.showAliases(ID[, OPTIONS])
+trakt.showAliases(ID[, OPTIONS][, CALLBACK])
 
-trakt.showTranslations(ID[, LANGUAGE][, OPTIONS])
+trakt.showTranslations(ID[, LANGUAGE][, OPTIONS][, CALLBACK])
 
-trakt.showComments(ID[, OPTIONS])
+trakt.showComments(ID[, OPTIONS][, CALLBACK])
 
-trakt.showProgressCollection(ID[, OPTIONS])
+trakt.showProgressCollection(ID[, OPTIONS][, CALLBACK])
 
-trakt.showProgressWatched(ID[, OPTIONS])
+trakt.showProgressWatched(ID[, OPTIONS][, CALLBACK])
 
-trakt.showPeople(ID[, OPTIONS])
+trakt.showPeople(ID[, OPTIONS][, CALLBACK])
 
-trakt.showRatings(ID[, OPTIONS])
+trakt.showRatings(ID[, OPTIONS][, CALLBACK])
 
-trakt.showRelated(ID[, OPTIONS])
+trakt.showRelated(ID[, OPTIONS][, CALLBACK])
 
-trakt.showStats(ID[, OPTIONS])
+trakt.showStats(ID[, OPTIONS][, CALLBACK])
 
-trakt.showWatching(ID[, OPTIONS])
+trakt.showWatching(ID[, OPTIONS][, CALLBACK])
 
-trakt.showSeasons(ID[, OPTIONS])
+trakt.showSeasons(ID[, OPTIONS][, CALLBACK])
 
-trakt.season(ID, SEASON[, OPTIONS])
+trakt.season(ID, SEASON[, OPTIONS][, CALLBACK])
 
-trakt.seasonComments(ID, SEASON[, OPTIONS])
+trakt.seasonComments(ID, SEASON[, OPTIONS][, CALLBACK])
 
-trakt.seasonRatings(ID, SEASON[, OPTIONS])
+trakt.seasonRatings(ID, SEASON[, OPTIONS][, CALLBACK])
 
-trakt.seasonStats(ID, SEASON[, OPTIONS])
+trakt.seasonStats(ID, SEASON[, OPTIONS][, CALLBACK])
 
-trakt.seasonWatching(ID, SEASON[, OPTIONS])
+trakt.seasonWatching(ID, SEASON[, OPTIONS][, CALLBACK])
 
-trakt.episode(ID, SEASON, EPISODE[, OPTIONS])
+trakt.episode(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 
-trakt.episodeComments(ID, SEASON, EPISODE[, OPTIONS])
+trakt.episodeComments(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 
-trakt.episodeRatings(ID, SEASON, EPISODE[, OPTIONS])
+trakt.episodeRatings(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 
-trakt.episodeStats(ID, SEASON, EPISODE[, OPTIONS])
+trakt.episodeStats(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 
-trakt.episodeWatching(ID, SEASON, EPISODE[, OPTIONS])
+trakt.episodeWatching(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 ```
