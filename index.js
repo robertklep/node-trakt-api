@@ -22,7 +22,7 @@ var Trakt = module.exports = function Trakt(apiKey, opts) {
   this.opts = lodash.merge({}, DEFAULTS, opts);
 
   // Create a request instance with the proper defaults.
-  this.req  = request.defaults({
+  this.req = request.defaults({
     headers : {
       'trakt-api-key'     : apiKey,
       'trakt-api-version' : '2',
@@ -35,7 +35,7 @@ var Trakt = module.exports = function Trakt(apiKey, opts) {
   logger.debug('initialized');
 };
 
-Trakt.prototype.request = function(method, endpoint, endpointParams, qsparams, callback) {
+Trakt.prototype.request = function() {
   var args = norma('method:s endpoint:s endpointParams:o? qsParams:o? callback:f?', arguments);
 
   // Additional request parameters
