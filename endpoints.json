@@ -212,19 +212,19 @@
     }
   },
   {
-    "name": "",
+    "name": "moviePopular",
     "method": "GET",
     "endpoint": "/movies/popular",
     "params": {}
   },
   {
-    "name": "",
+    "name": "movieTrending",
     "method": "GET",
     "endpoint": "/movies/trending",
     "params": {}
   },
   {
-    "name": "",
+    "name": "movieUpdates",
     "method": "GET",
     "endpoint": "/movies/updates/{start_date}",
     "params": {
@@ -235,7 +235,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movie",
     "method": "GET",
     "endpoint": "/movies/{id}",
     "params": {
@@ -246,7 +246,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieAliases",
     "method": "GET",
     "endpoint": "/movies/{id}/aliases",
     "params": {
@@ -257,7 +257,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieReleases",
     "method": "GET",
     "endpoint": "/movies/{id}/releases/{country}",
     "params": {
@@ -272,7 +272,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieTranslations",
     "method": "GET",
     "endpoint": "/movies/{id}/translations/{language}",
     "params": {
@@ -287,7 +287,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieComments",
     "method": "GET",
     "endpoint": "/movies/{id}/comments",
     "params": {
@@ -298,7 +298,7 @@
     }
   },
   {
-    "name": "",
+    "name": "moviePeople",
     "method": "GET",
     "endpoint": "/movies/{id}/people",
     "params": {
@@ -309,7 +309,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieRatings",
     "method": "GET",
     "endpoint": "/movies/{id}/ratings",
     "params": {
@@ -320,7 +320,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieRelated",
     "method": "GET",
     "endpoint": "/movies/{id}/related",
     "params": {
@@ -331,7 +331,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieStats",
     "method": "GET",
     "endpoint": "/movies/{id}/stats",
     "params": {
@@ -342,7 +342,7 @@
     }
   },
   {
-    "name": "",
+    "name": "movieWathcing",
     "method": "GET",
     "endpoint": "/movies/{id}/watching",
     "params": {
