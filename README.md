@@ -69,6 +69,8 @@ trakt.searchMovie(QUERY[, CALLBACK])
 
 trakt.searchEpisode(QUERY[, CALLBACK])
 
+trakt.searchPerson(QUERY[, CALLBACK])
+
 trakt.moviePopular([, OPTIONS][, CALLBACK])
 
 trakt.movieTrending([, OPTIONS][, CALLBACK])
