@@ -73,6 +73,32 @@ trakt.searchEpisode(QUERY[, CALLBACK])
 
 trakt.searchPerson(QUERY[, CALLBACK])
 
+trakt.moviePopular([OPTIONS][, CALLBACK])
+
+trakt.movieTrending([OPTIONS][, CALLBACK])
+
+trakt.movieUpdates([START_DATE][, OPTIONS][, CALLBACK])
+
+trakt.movie(ID[, OPTIONS][, CALLBACK])
+
+trakt.movieAliases(ID[, OPTIONS][, CALLBACK])
+
+trakt.movieReleases(ID[, COUNTRY][, OPTIONS][, CALLBACK])
+
+trakt.movieTranslations(ID[, LANGUAGE][, OPTIONS][, CALLBACK])
+
+trakt.movieComments(ID[, OPTIONS][, CALLBACK])
+
+trakt.moviePeople(ID[, OPTIONS][, CALLBACK])
+
+trakt.movieRatings(ID[, OPTIONS][, CALLBACK])
+
+trakt.movieRelated(ID[, OPTIONS][, CALLBACK])
+
+trakt.movieStats(ID[, OPTIONS][, CALLBACK])
+
+trakt.movieWatching(ID[, OPTIONS][, CALLBACK])
+
 trakt.show(ID[, OPTIONS][, CALLBACK])
 
 trakt.showAliases(ID[, OPTIONS][, CALLBACK])
@@ -116,4 +142,6 @@ trakt.episodeRatings(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 trakt.episodeStats(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 
 trakt.episodeWatching(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
+
+
 ```
