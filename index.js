@@ -2,7 +2,6 @@ var assert  = require('assert');
 var norma   = require('norma');
 var lodash  = require('lodash');
 var request = require('request');
-var nodeify = require('bluebird').nodeify;
 var Promise = require('bluebird').Promise;
 var logger  = require('winston');
 
@@ -88,11 +87,12 @@ require('./endpoints.json').forEach(function(endpoint) {
 
   // Create the API method.
   Trakt.prototype[endpoint.name] = function() {
-    // Parse arguments (XXX: handle errors).
+    // Parse arguments. This throws if the method isn't
+    // called with the proper (required) arguments.
     var args = argspec(arguments);
 
     // Collect parameters.
-    var params = lodash(endpoint.params).map(function(flags, param) {
+    var params = lodash(endpoint.params).keys().map(function(param) {
       return [ param, args[param] ];
     }).zipObject().value();
 

@@ -46,11 +46,13 @@ extended : String   // default "extended" level (default: 'min')
 
 ### API methods
 
-All API methods are generated from `endpoints.json`, although not all are implemented yet (see below). API methods generally have required and optional arguments. Required arguments are enforced and will cause an error to be thrown if not defined.
+Most API methods are generated from `endpoints.json`, although not all are implemented yet (see below). API methods generally have required and optional arguments. Required arguments are enforced and will cause an error to be thrown if not defined.
 
-All API methods also accept an optional `OPTIONS` object. There's one valid option for now:
+Most API methods also accept an optional `OPTIONS` object. There's one valid option for now:
 
 * `extended`: use an [extended information level](http://docs.trakt.apiary.io/#introduction/extended-info)
+
+However, this option doesn't apply to all API methods. Refer to the Trakt API documentation.
 
 ##### Promises versus callbacks
 
