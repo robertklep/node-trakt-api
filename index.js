@@ -83,7 +83,7 @@ require('./endpoints.json').forEach(function(endpoint) {
 
   // Compile arguments handler.
   var argspec = norma.compile(lodash.map(endpoint.params, function(flags, param) {
-    return param + ':.' + (flags.optional ? '?' : '');
+    return lodash.camelCase(param) + ':s|i' + (flags.optional ? '?' : '');
   }).concat('opts:o?', 'callback:f?').join(' '));
 
   // Create the API method.
@@ -93,7 +93,7 @@ require('./endpoints.json').forEach(function(endpoint) {
 
     // Collect parameters.
     var params = lodash(endpoint.params).map(function(flags, param) {
-      return [ param, args[param] ];
+      return [ param, args[lodash.camelCase(param)] ];
     }).zipObject().value();
 
     // Perform the request.

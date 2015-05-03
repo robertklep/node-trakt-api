@@ -60,7 +60,7 @@ If you don't like promises, or just prefer old school callbacks, pass a function
 
 ```javascript
 trakt.search(QUERY[, TYPE][, CALLBACK])
- 
+
 trakt.searchAll(QUERY[, CALLBACK])
 
 trakt.searchShow(QUERY[, CALLBACK])
@@ -71,9 +71,9 @@ trakt.searchEpisode(QUERY[, CALLBACK])
 
 trakt.searchPerson(QUERY[, CALLBACK])
 
-trakt.moviePopular([, OPTIONS][, CALLBACK])
+trakt.moviePopular([OPTIONS][, CALLBACK])
 
-trakt.movieTrending([, OPTIONS][, CALLBACK])
+trakt.movieTrending([OPTIONS][, CALLBACK])
 
 trakt.movieUpdates([START_DATE][, OPTIONS][, CALLBACK])
 
@@ -95,7 +95,7 @@ trakt.movieRelated(ID[, OPTIONS][, CALLBACK])
 
 trakt.movieStats(ID[, OPTIONS][, CALLBACK])
 
-trakt.movieWathcing(ID[, OPTIONS][, CALLBACK])
+trakt.movieWatching(ID[, OPTIONS][, CALLBACK])
 
 trakt.show(ID[, OPTIONS][, CALLBACK])
 

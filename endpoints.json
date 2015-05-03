@@ -342,7 +342,7 @@
     }
   },
   {
-    "name": "movieWathcing",
+    "name": "movieWatching",
     "method": "GET",
     "endpoint": "/movies/{id}/watching",
     "params": {
