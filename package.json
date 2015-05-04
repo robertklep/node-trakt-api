@@ -1,6 +1,6 @@
 {
   "name": "trakt-api",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Trakt API v2 client",
   "main": "index.js",
   "author": "Robert Klep <robert@klep.name>",
