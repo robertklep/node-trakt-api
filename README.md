@@ -40,8 +40,10 @@ var trakt = Trakt(API_KEY : String [, OPTIONS : Object]);
 * `OPTIONS` is an optional object that may contain the following properties:
 
     ```
-logLevel : String   // log level                (default: 'info')
 extended : String   // default "extended" level (default: 'min')
+logLevel : String   // log level                (default: 'info')
+poolSize : Number   // HTTP request pool size   (default: 5)
+timeout  : Number   // HTTP timeout in ms       (default: 30000)
     ```
 
 ### API methods

@@ -9,6 +9,8 @@ var DEFAULTS = {
   apiUrl   : 'https://api-v2launch.trakt.tv',
   extended : 'min',
   logLevel : 'info',
+  poolSize : 5,
+  timeout  : 30000
 };
 
 var Trakt = module.exports = function Trakt(apiKey, opts) {
@@ -22,6 +24,8 @@ var Trakt = module.exports = function Trakt(apiKey, opts) {
 
   // Create a request instance with the proper defaults.
   this.req = request.defaults({
+    pool    : { maxSockets : this.opts.poolSize },
+    timeout : this.opts.timeout,
     headers : {
       'trakt-api-key'     : apiKey,
       'trakt-api-version' : '2',
