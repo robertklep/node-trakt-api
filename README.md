@@ -63,17 +63,17 @@ If you don't like promises, or just prefer old school callbacks, pass a function
 ### Methods currently implemented
 
 ```javascript
-trakt.search(QUERY[, TYPE][, CALLBACK])
+trakt.search(QUERY[, TYPE][, YEAR][, CALLBACK])
 
-trakt.searchAll(QUERY[, CALLBACK])
+trakt.searchAll(QUERY[, YEAR][, CALLBACK])
 
-trakt.searchShow(QUERY[, CALLBACK])
+trakt.searchShow(QUERY[, YEAR][, CALLBACK])
 
-trakt.searchMovie(QUERY[, CALLBACK])
+trakt.searchMovie(QUERY[, YEAR][, CALLBACK])
 
-trakt.searchEpisode(QUERY[, CALLBACK])
+trakt.searchEpisode(QUERY[, YEAR][, CALLBACK])
 
-trakt.searchPerson(QUERY[, CALLBACK])
+trakt.searchPerson(QUERY[, YEAR][, CALLBACK])
 
 trakt.moviePopular([OPTIONS][, CALLBACK])
 

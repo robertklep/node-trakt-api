@@ -107,8 +107,12 @@ require('./endpoints.json').forEach(function(endpoint) {
 
 // Search methods.
 Trakt.prototype.search = Trakt.prototype.searchAll = function() {
-  var args   = norma('query:s type:s? callback:f?', arguments);
-  var params = { query : args.query, type : args.type };
+  var args   = norma('query:s type:s? year:i? callback:f?', arguments);
+  var params = {
+    query : args.query,
+    type  : args.type,
+    year  : args.year,
+  };
   return this.request('GET', '/search', {}, params, args.callback);
 };
 
