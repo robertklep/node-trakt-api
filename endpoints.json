@@ -50,7 +50,7 @@
     }
   },
   {
-    "name": "calendarsMyShowsNew",
+    "name": "calendarMyShowsNew",
     "method": "GET",
     "endpoint": "/calendars/my/shows/new/{start_date}/{days}",
     "params": {
@@ -65,7 +65,7 @@
     }
   },
   {
-    "name": "calendarsMyShowsPremieres",
+    "name": "calendarMyShowsPremieres",
     "method": "GET",
     "endpoint": "/calendars/my/shows/premieres/{start_date}/{days}",
     "params": {
@@ -80,7 +80,7 @@
     }
   },
   {
-    "name": "calendarsMyMovies",
+    "name": "calendarMyMovies",
     "method": "GET",
     "endpoint": "/calendars/my/movies/{start_date}/{days}",
     "params": {
@@ -95,7 +95,7 @@
     }
   },
   {
-    "name": "calendarsAllShows",
+    "name": "calendarAllShows",
     "method": "GET",
     "endpoint": "/calendars/all/shows/{start_date}/{days}",
     "params": {
@@ -110,7 +110,7 @@
     }
   },
   {
-    "name": "calendarsAllShowsNews",
+    "name": "calendarAllShowsNews",
     "method": "GET",
     "endpoint": "/calendars/all/shows/new/{start_date}/{days}",
     "params": {
@@ -125,7 +125,7 @@
     }
   },
   {
-    "name": "calendarsAllShowsPremieres",
+    "name": "calendarAllShowsPremieres",
     "method": "GET",
     "endpoint": "/calendars/all/shows/premieres/{start_date}/{days}",
     "params": {
@@ -140,7 +140,7 @@
     }
   },
   {
-    "name": "calendarsAllMovies",
+    "name": "calendarAllMovies",
     "method": "GET",
     "endpoint": "/calendars/all/movies/{start_date}/{days}",
     "params": {
@@ -453,19 +453,19 @@
     }
   },
   {
-    "name": "",
+    "name": "showPopular",
     "method": "GET",
     "endpoint": "/shows/popular",
     "params": {}
   },
   {
-    "name": "",
+    "name": "showTrending",
     "method": "GET",
     "endpoint": "/shows/trending",
     "params": {}
   },
   {
-    "name": "",
+    "name": "showUpdates",
     "method": "GET",
     "endpoint": "/shows/updates/{start_date}",
     "params": {

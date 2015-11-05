@@ -75,19 +75,19 @@ trakt.searchEpisode(QUERY[, YEAR][, CALLBACK])
 
 trakt.searchPerson(QUERY[, YEAR][, CALLBACK])
 
-trakt.calendarsMyShowsNew([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
+trakt.calendarMyShowsNew([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
-trakt.calendarsMyShowsPremieres([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
+trakt.calendarMyShowsPremieres([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
-trakt.calendarsMyMovies([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
+trakt.calendarMyMovies([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
-trakt.calendarsAllShows([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
+trakt.calendarAllShows([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
-trakt.calendarsAllShowsNews([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
+trakt.calendarAllShowsNews([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
-trakt.calendarsAllShowsPremieres([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
+trakt.calendarAllShowsPremieres([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
-trakt.calendarsAllMovies([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
+trakt.calendarAllMovies([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
 trakt.moviePopular([OPTIONS][, CALLBACK])
 
@@ -114,6 +114,12 @@ trakt.movieRelated(ID[, OPTIONS][, CALLBACK])
 trakt.movieStats(ID[, OPTIONS][, CALLBACK])
 
 trakt.movieWatching(ID[, OPTIONS][, CALLBACK])
+
+trakt.showPopular([OPTIONS][, CALLBACK])
+
+trakt.showTrending([OPTIONS][, CALLBACK])
+
+trakt.showUpdates([START_DATE][, OPTIONS][, CALLBACK])
 
 trakt.show(ID[, OPTIONS][, CALLBACK])
 
