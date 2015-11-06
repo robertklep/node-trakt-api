@@ -1,6 +1,6 @@
 ## Trakt.tv API v2
 
-Node.js client for the [Trakt.tv API](http://docs.trakt.apiary.io/#).
+Node.js client for the [Trakt.tv API](http://docs.trakt.apiary.io/).
 
 Work in progress!
 
@@ -62,18 +62,20 @@ If you don't like promises, or just prefer old school callbacks, pass a function
 
 ### Methods currently implemented
 
+Please refer to the [API documentation](http://docs.trakt.apiary.io/) for more information on each method.
+
 ```javascript
-trakt.search(QUERY[, TYPE][, YEAR][, CALLBACK])
+trakt.search(QUERY:String[, TYPE:String][, YEAR:Number][, CALLBACK])
 
-trakt.searchAll(QUERY[, YEAR][, CALLBACK])
+trakt.searchAll(QUERY:String[, YEAR:Number][, CALLBACK])
 
-trakt.searchShow(QUERY[, YEAR][, CALLBACK])
+trakt.searchShow(QUERY:String[, YEAR:Number][, CALLBACK])
 
-trakt.searchMovie(QUERY[, YEAR][, CALLBACK])
+trakt.searchMovie(QUERY:String[, YEAR:Number][, CALLBACK])
 
-trakt.searchEpisode(QUERY[, YEAR][, CALLBACK])
+trakt.searchEpisode(QUERY:String[, YEAR:Number][, CALLBACK])
 
-trakt.searchPerson(QUERY[, YEAR][, CALLBACK])
+trakt.searchPerson(QUERY:String[, YEAR:Number][, CALLBACK])
 
 trakt.calendarMyShowsNew([START_DATE][, DAYS][, OPTIONS][, CALLBACK])
 
