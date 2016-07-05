@@ -10,7 +10,8 @@ var DEFAULTS = {
   extended : 'min',
   logLevel : 'info',
   poolSize : 5,
-  timeout  : 30000
+  timeout  : 30000,
+  noReject : false
 };
 
 var Trakt = module.exports = function Trakt(apiKey, opts) {
@@ -50,6 +51,8 @@ Trakt.prototype.request = function() {
   // Perform API request.
   var url = this.opts.apiUrl + this.expand(args.endpoint, args.endpointParams || {});
   var req = this.req.bind(this.req);
+
+  var _this = this;
   return new Promise(function(resolve, reject) {
     logger.debug('making API request', { url : url, method : args.method, qs : JSON.stringify(params) });
 
@@ -62,11 +65,18 @@ Trakt.prototype.request = function() {
       // Reject errors outright.
       if (err) return reject(err);
 
-      // Reject non-200 status codes.
-      if (message.statusCode !== 200) {
-        err            = new Error('unexpected API response');
-        err.statusCode = message.statusCode;
-        return reject(err);
+      if(_this.opts.noReject)
+      { //return all non-200 status codes as messages
+        if(message.statusCode && message.statusCode !== 200) {
+          return resolve(message);
+        }
+      } else {
+        // Reject non-200 status codes.
+        if (message.statusCode !== 200) {
+          err            = new Error('unexpected API response');
+          err.statusCode = message.statusCode;
+          return reject(err);
+        }
       }
 
       // Parse response.

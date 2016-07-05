@@ -1067,7 +1067,7 @@
     }
   },
   {
-    "name": "",
+    "name": "userHistory",
     "method": "GET",
     "endpoint": "/users/{username}/history/{type}",
     "params": {
@@ -1076,8 +1076,8 @@
         "optional": false
       },
       "type": {
-        "required": true,
-        "optional": false
+        "required": false,
+        "optional": true
       }
     }
   },
@@ -1116,7 +1116,7 @@
     }
   },
   {
-    "name": "",
+    "name": "userWatching",
     "method": "GET",
     "endpoint": "/users/{username}/watching",
     "params": {

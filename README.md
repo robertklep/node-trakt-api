@@ -167,4 +167,8 @@ trakt.episodeStats(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 
 trakt.episodeWatching(ID, SEASON, EPISODE[, OPTIONS][, CALLBACK])
 
+trakt.userWatching(USERNAME[, CALLBACK])
+
+trakt.userHistory(USERNAME[, CALLBACK])
+
 ```
