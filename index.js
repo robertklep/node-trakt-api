@@ -10,8 +10,7 @@ var DEFAULTS = {
   extended : 'min',
   logLevel : 'info',
   poolSize : 5,
-  timeout  : 30000,
-  noReject : false
+  timeout  : 30000
 };
 
 var Trakt = module.exports = function Trakt(apiKey, opts) {
@@ -65,18 +64,16 @@ Trakt.prototype.request = function() {
       // Reject errors outright.
       if (err) return reject(err);
 
-      if(_this.opts.noReject)
-      { //return all non-200 status codes as messages
-        if(message.statusCode && message.statusCode !== 200) {
-          return resolve(message);
-        }
-      } else {
-        // Reject non-200 status codes.
-        if (message.statusCode !== 200) {
-          err            = new Error('unexpected API response');
-          err.statusCode = message.statusCode;
-          return reject(err);
-        }
+      // Reject error status codes
+      if (message.statusCode >= 400) {
+        err            = new Error('unexpected API response');
+        err.statusCode = message.statusCode;
+        return reject(err);
+      }
+
+      // Handle "no content" status code.
+      if (message.statusCode === 204) {
+        return resolve();
       }
 
       // Parse response.

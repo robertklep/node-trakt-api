@@ -1069,13 +1069,17 @@
   {
     "name": "userHistory",
     "method": "GET",
-    "endpoint": "/users/{username}/history/{type}",
+    "endpoint": "/users/{username}/history/{type}/{id}",
     "params": {
       "username": {
         "required": true,
         "optional": false
       },
       "type": {
+        "required": false,
+        "optional": true
+      },
+      "id": {
         "required": false,
         "optional": true
       }
