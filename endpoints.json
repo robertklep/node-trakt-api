@@ -438,9 +438,24 @@
     }
   },
   {
-    "name": "",
+    "name": "searchTextQuery",
     "method": "GET",
-    "endpoint": "/search{?id_type,id}",
+    "endpoint": "/search/{type}?query={query}",
+    "params": {
+      "type": {
+        "required": false,
+        "optional": true
+      },
+      "query": {
+        "required": false,
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "searchIDLookup",
+    "method": "GET",
+    "endpoint": "/search/{id_type}/{id}?type={type}",
     "params": {
       "id_type": {
         "required": true,
@@ -449,6 +464,10 @@
       "id": {
         "required": true,
         "optional": false
+      },
+      "type": {
+        "required": false,
+        "optional": true
       }
     }
   },

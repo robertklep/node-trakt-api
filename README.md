@@ -117,6 +117,10 @@ trakt.movieStats(ID[, OPTIONS][, CALLBACK])
 
 trakt.movieWatching(ID[, OPTIONS][, CALLBACK])
 
+trakt.searchTextQuery(TYPE[, QUERY][, CALLBACK])
+
+trakt.searchIDLookup(TYPE[, ID_TYPE][, ID][, CALLBACK])
+
 trakt.showPopular([OPTIONS][, CALLBACK])
 
 trakt.showTrending([OPTIONS][, CALLBACK])
