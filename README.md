@@ -39,12 +39,12 @@ var trakt = Trakt(API_KEY : String [, OPTIONS : Object]);
 * `API_KEY` is the _Client ID_ value listed on your [application's page](https://trakt.tv/oauth/applications). You need to [create a new application](https://trakt.tv/oauth/applications/new) before you can use this API.
 * `OPTIONS` is an optional object that may contain the following properties:
 
-    ```
+```
 extended : String   // default "extended" level (default: 'min')
 logLevel : String   // log level                (default: 'info')
 poolSize : Number   // HTTP request pool size   (default: 5)
 timeout  : Number   // HTTP timeout in ms       (default: 30000)
-    ```
+```
 
 ### API methods
 
